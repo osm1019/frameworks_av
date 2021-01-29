@@ -88,11 +88,6 @@ const static size_t kDequeueTimeoutNs = 0;
 // after app resume to foreground to notify HAL something
 const static uint64_t kPipelinePausedTimeoutMs = 500;
 
-static bool areRenderMetricsEnabled() {
-    std::string v = GetServerConfigurableFlag("media_native", "render_metrics_enabled", "false");
-    return v == "true";
-}
-
 }  // namespace
 
 CCodecBufferChannel::QueueGuard::QueueGuard(
