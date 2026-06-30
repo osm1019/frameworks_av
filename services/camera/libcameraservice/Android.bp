@@ -274,6 +274,9 @@ cc_library {
     }) + select(soong_config_variable("camera", "ext_lib"), {
         any @ flag_val: ["-DTARGET_PROVIDES_CAMERA_PROVIDER_EXT_LIB"],
         default: [],
+    }) + select(soong_config_variable("camera", "allow_nonincreasing_timestamps"), {
+        any @ value: ["-DALLOW_NONINCREASING_TIMESTAMPS"],
+        default: [],
     }),
 
     whole_static_libs: select(soong_config_variable("libcameraservice", "ext_lib"), {
